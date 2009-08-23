@@ -1,0 +1,24 @@
+<h1>Editing pizza</h1>
+
+<% form_for(@pizza) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :tip %><br />
+    <%= f.text_field :tip %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @pizza %> |
+<%= link_to 'Back', pizzas_path %>

@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @pizza.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @pizza.description %>
+</p>
+
+<p>
+  <b>Tip:</b>
+  <%=h @pizza.tip %>
+</p>
+
+
+<%= link_to 'Edit', edit_pizza_path(@pizza) %> |
+<%= link_to 'Back', pizzas_path %>

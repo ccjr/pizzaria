@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090823230528) do
+ActiveRecord::Schema.define(:version => 20090823233745) do
+
+  create_table "pizzas", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "tip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
