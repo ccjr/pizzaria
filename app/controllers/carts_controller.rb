@@ -1,17 +1,19 @@
 class CartsController < ApplicationController
-  before_filter :load_cart
+  before_filter :load_objects
+  
   def add
-    @cart.items.build(:product_id => params[:product_id], :quantity => 1)
+    @cart.add_product_to_order(@product)
     redirect_to cart_path
   end
   
   def remove
-    @cart.items.delete_at(params[:index].to_i)
+    @cart.remove_product_from_order(@product)
     redirect_to cart_path
   end
   
   private
-    def load_cart
+    def load_objects
       @cart = current_cart
+      @product = Pizza.find(params[:product_id]) if params[:product_id]
     end
 end
