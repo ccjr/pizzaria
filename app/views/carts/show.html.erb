@@ -1,3 +1,15 @@
 <h1>Cart</h1>
 
-<%= current_cart %>
+<% if current_cart.items.any? %>
+  <ul>
+    <% current_cart.items.each_with_index do |item, index|  %>
+    <li>
+      <%= pluralize(item.quantity, item.product.name) %> <%= item.price %>
+      <%= link_to 'remove', remove_from_cart_path(:index => index), :method => :post %>
+    </li>
+    <% end %>
+  </ul>
+  Total <%= current_cart.total %>
+<% else %>
+  No products yet, <%= link_to 'go shop', root_path %>
+<% end %>

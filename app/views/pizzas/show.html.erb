@@ -13,6 +13,9 @@
   <%=h @pizza.tip %>
 </p>
 
+<p>
+  <%= link_to 'add to cart', add_to_cart_path(:product_id => @pizza), :method => :post %>
+</p>
 
 <%= link_to 'Edit', edit_pizza_path(@pizza) %> |
 <%= link_to 'Back', pizzas_path %>
