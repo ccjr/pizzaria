@@ -1,20 +1,7 @@
 <h1>New product</h1>
 
-<% form_for(@product) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :tip %><br />
-    <%= f.text_field :tip %>
-  </p>
+<% form_for(@product, :html => { :multipart => true }) do |f| %>
+  <%= render :partial => f %>
   <p>
     <%= f.submit 'Create' %>
   </p>

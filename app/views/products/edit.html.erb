@@ -1,23 +1,7 @@
 <h1>Editing product</h1>
 
 <% form_for(@product, :html => { :multipart => true }) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :tip %><br />
-    <%= f.text_field :tip %>
-  </p>
-  <p>
-    <%= f.file_field :image %>
-  </p>
+  <%= render :partial => f %>
   <p>
     <%= f.submit 'Update' %>
   </p>
