@@ -13,7 +13,7 @@
     </p>
     <p id="address" style="display: none;">
       <%= f.label :address %><br />
-      <%= f.text_field :address %>
+      <%= f.text_field :address, :value => current_user.try(:address) %>
     </p>
     <p>
       <%= f.submit "Checkout" %>
