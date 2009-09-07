@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_filter :login_required
+  before_filter :login_and_return_to_cart
   
   def show
     @order = Order.find params[:id]
@@ -9,6 +9,15 @@ class OrdersController < ApplicationController
     @order = current_cart
     current_user.orders << @order
     session[:cart] = nil
+    flash[:notice] = "Thank you for your order."
     redirect_to @order
   end
+  
+  private
+    def login_and_return_to_cart
+      unless logged_in?
+        session[:return_to] = cart_path
+        redirect_to login_path and return 
+      end      
+    end
 end
