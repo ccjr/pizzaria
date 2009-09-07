@@ -15,4 +15,4 @@ Product.create :name        => 'Tropical Hawaiian',
                :description => 'Topped with bacon topping, bacon strips, pineapple and mozzarella cheese.'
 Product.create :name        => 'Pepperoni',
                :category    => 'Pizza',
-               :price       => 4.99,
+               :price       => 4.99
