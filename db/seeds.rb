@@ -1,3 +1,4 @@
+# Pizzas
 Product.create :name        => 'Big Bacon Bonanza', 
                :tip         => 'Try with Blue Cheese dipping sauce', 
                :category    => 'Pizza',
@@ -16,3 +17,9 @@ Product.create :name        => 'Tropical Hawaiian',
 Product.create :name        => 'Pepperoni',
                :category    => 'Pizza',
                :price       => 4.99
+
+# Drinks
+# Other
+
+# Default user
+# Admin user
