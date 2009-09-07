@@ -1,0 +1,6 @@
+if item = @cart.item_for_product(@product)
+  page.replace_html dom_id(@product), :partial => 'carts/item', :object => item
+else
+  page.remove dom_id(@product)
+end
+page.replace_html 'cart_total', number_to_currency(@cart.total)

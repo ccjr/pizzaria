@@ -3,12 +3,15 @@ class CartsController < ApplicationController
   
   def add
     @cart.add_product_to_order(@product)
-    redirect_to cart_path
+    respond_to do |format|
+      format.html { redirect_to cart_path }
+      format.js   { render :template => "carts/update_cart.rjs" }
+    end
   end
   
   def remove
     @cart.remove_product_from_order(@product)
-    redirect_to cart_path
+    render :template => "carts/update_cart.rjs"
   end
   
   private

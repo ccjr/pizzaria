@@ -2,15 +2,9 @@
 
 <% if current_cart.items.any? %>
   <ul>
-    <% current_cart.items.each_with_index do |item, index|  %>
-    <li>
-      <%= pluralize(item.quantity, item.product.name) %> <%= item.price %>
-      <%= link_to '+', add_to_cart_path(:product_id => item.product.id), :method => :post %>
-      <%= link_to '-', remove_from_cart_path(:product_id => item.product.id), :method => :post %>
-    </li>
-    <% end %>
+    <%= render :partial => 'carts/item', :collection => current_cart.items %>
   </ul>
-  Total <%= current_cart.total %>
+  Total <span id="cart_total"><%= number_to_currency current_cart.total %></span>
 <% else %>
   No products yet, <%= link_to 'go shop', root_path %>
 <% end %>
