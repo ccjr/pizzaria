@@ -4,6 +4,6 @@ class OrderItem < ActiveRecord::Base
   belongs_to :product
   
   def price
-    quantity * 5.99
+    quantity * product.price
   end
 end

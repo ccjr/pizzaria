@@ -4,4 +4,6 @@ class Product < ActiveRecord::Base
                                  :thumb => "100x100>" }
                                  
   CATEGORIES = ["Pizza", "Drink", "Other"]
+  
+  validates_presence_of :category, :price, :name
 end
