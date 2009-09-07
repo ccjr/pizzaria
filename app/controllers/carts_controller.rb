@@ -14,6 +14,6 @@ class CartsController < ApplicationController
   private
     def load_objects
       @cart = current_cart
-      @product = Pizza.find(params[:product_id]) if params[:product_id]
+      @product = Product.find(params[:product_id]) if params[:product_id]
     end
 end

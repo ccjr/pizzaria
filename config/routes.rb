@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :pizzas
+  map.resources :products
 
   map.resources :users
   map.resource :session

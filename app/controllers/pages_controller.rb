@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-    @pizzas = Pizza.all
+    @products = Product.all
   end
 end

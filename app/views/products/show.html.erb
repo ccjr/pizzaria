@@ -1,0 +1,21 @@
+<p>
+  <b>Name:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+  <b>Tip:</b>
+  <%=h @product.tip %>
+</p>
+
+<p>
+  <%= link_to 'add to cart', add_to_cart_path(:product_id => @product), :method => :post %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
