@@ -2,6 +2,8 @@ class Order < ActiveRecord::Base
   validates_presence_of :user_id
   belongs_to :user
   has_many :items, :class_name => "OrderItem"
+
+  DELIVERY_METHODS = ["Pick up", "Home Delivery"]
   
   def add_product_to_order(product)
     if products.include?(product)

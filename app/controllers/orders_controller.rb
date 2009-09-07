@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
   
   def create
     @order = current_cart
+    @order.update_attributes(params[:order])
     current_user.orders << @order
     session[:cart] = nil
     flash[:notice] = "Thank you for your order."

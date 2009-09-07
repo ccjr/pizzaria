@@ -1,2 +1,7 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+function deliveryMethodSelected() {
+  if ($F('order_delivery_method') == 'Pick up') {
+    $('address').hide();
+  } else {
+    $('address').show();
+  }
+}
