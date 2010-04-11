@@ -1,5 +1,5 @@
 - Devise
-  - Adding to Gemfile: gem 'devise', '1.1.rc0'
+  - Adding to Gemfile: gem 'devise', '1.1.rc0' (run 'bundle install' after this)
   - Update development.rb: config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   - Defining root path: root :to => "users#new"
 
