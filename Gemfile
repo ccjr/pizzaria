@@ -7,6 +7,7 @@ gem 'rails', :git => 'git://github.com/rails/rails.git', :ref => '1f80b8b04f9783
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'devise', '1.1.rc0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
