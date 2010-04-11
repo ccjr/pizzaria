@@ -4,6 +4,9 @@
   - Defining root path: root :to => "users#new"
   - Generating User model: 'rails generate devise User'
   
+  - Add admin boolean field
+  
+  
   - URLS
     - http://localhost:3000/users/registration/sign_up
     - http://localhost:3000/users/sign_in
@@ -13,6 +16,8 @@
   - rails generate model OrderItem order_id:integer product_id:integer quantity:integer
   - rails generate scaffold Product name:string description:string tip:string category:string price:decimal
 
+  - Seed file, some products and an Admin user
+
 - Assiciations
   - Order / Product / User / OrderItem
 
@@ -20,4 +25,33 @@
 
 - Installing Paperclip
   - rails generate migration AddImageToProducts image_file_name:string image_content_type:string image_file_size:integer image_updated_at:datetime
+
+- Controller
+  - Products (Scaffolded)
+    - Only admin should edit/update/create/delete
+  - Carts with updating Application Controller (current_cart)
+    - add and remove
+  - Orders
+    - index => admin ? all : my
+    - new => has the shipping method and the address fields
+    - show / create
+    - reorder => Order.new(@order.clone)
+  - Pages
+    - index / about
+
+- Update the application layout  
+  - sidebar with cart view
+  - render Login/logout in the sidebar/header
+  - Product partial with 'add to cart'
+  - Show order page
+  - show cart page
   
+- Routes
+  - Root is to pages#index
+  
+- Active Merchant
+
+- Ideas with directions.
+  - Dynamic categories (belongs_to and has_many)
+  - Add extra fields to Order item - Customize size
+  - Search functionality - SimpleSearch plugin
