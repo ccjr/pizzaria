@@ -2,4 +2,8 @@
   - Adding to Gemfile: gem 'devise', '1.1.rc0' (run 'bundle install' after this)
   - Update development.rb: config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   - Defining root path: root :to => "users#new"
-
+  - Generating User model: 'rails generate devise User'
+  
+  - URLS
+    - http://localhost:3000/users/registration/sign_up
+    - http://localhost:3000/users/sign_in
