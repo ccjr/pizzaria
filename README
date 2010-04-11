@@ -7,3 +7,13 @@
   - URLS
     - http://localhost:3000/users/registration/sign_up
     - http://localhost:3000/users/sign_in
+  
+- Models
+  - rails generate model Order user_id:integer total:decimal delivery_method:string address:string
+  - rails generate model OrderItem order_id:integer product_id:integer quantity:integer
+  - rails generate scaffold Product name:string description:string tip:string category:string price:decimal
+
+- Assiciations
+  - Order / Product / User / OrderItem
+
+- Adding methods
