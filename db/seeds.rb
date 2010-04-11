@@ -22,4 +22,5 @@ Product.create :name        => 'Pepperoni',
 # Other
 
 # Default user
+User.create :login => 'test', :email => 'test@example.com', :password => 'secret', :password_confirmation => 'secret'
 # Admin user
