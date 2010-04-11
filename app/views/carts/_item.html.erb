@@ -1,5 +1,0 @@
-<li id="<%= dom_id(item.product) %>">
-  <%= pluralize(item.quantity, item.product.name) %> <%= number_to_currency item.price %>
-  <%= link_to_remote '+', :url => add_to_cart_path(:product_id => item.product.id) %>
-  <%= link_to_remote '-', :url => remove_from_cart_path(:product_id => item.product.id) %>
-</li>

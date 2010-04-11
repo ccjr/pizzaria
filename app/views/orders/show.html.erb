@@ -1,6 +1,0 @@
-<h1>Order</h1>
-
-<ul>
-  <%= render :partial => 'orders/item', :collection => @order.items %>
-</ul>
-Total <span id="cart_total"><%= number_to_currency @order.total %></span>
