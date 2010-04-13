@@ -1,4 +1,5 @@
-admin = User.create(:email => "admin@example.com", :password => "secret", :password_confirmation => "secret", :admin => true)
+admin = User.create(:email => "admin@example.com", :password => "secret", :password_confirmation => "secret")
+admin.update_attribute(:admin, true)
 
 products = Product.create([
   {:name => "New York Pizza", :description => "Salami, tomato souce and mozzarella cheese", :category => "Pizza", :price => 12},

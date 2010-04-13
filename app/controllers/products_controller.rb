@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_filter :only_admin, :except => :index
+
   # GET /products
   # GET /products.xml
   def index

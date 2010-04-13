@@ -3,5 +3,5 @@ Pizzaria::Application.routes.draw do |map|
 
   devise_for :users
 
-  root :to => "users#new"
+  root :to => "products#index"
 end
