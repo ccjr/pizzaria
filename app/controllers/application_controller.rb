@@ -2,7 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   def current_cart
-    session[:current_cart] ||= Order.new
+    unless session[:cart_id]
+      order = Order.new
+      order.save(false)
+      session[:cart_id] = order.id
+    end
+    Order.find(session[:cart_id])
   end
   helper_method :current_cart
   

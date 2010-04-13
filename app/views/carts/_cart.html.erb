@@ -1,10 +1,11 @@
 <ul id="cart">
-  <% if current_cart.present? %>
-    <% current_cart.items.each do |item| %>
-      <li>
-        <%= item.name %> - <%= item.quantity %> x <%= item.price %> = <%= item.total %> - 
-        <%= link_to "One less", remove_from_cart_path(:id => item.product_id), :remote => true %>
-      </li>
-    <% end %>
+  <% current_cart.items.each do |item| %>
+    <li>
+      <%= item.name %> - <%= item.quantity %> x <%= number_to_currency item.price %> = <%= number_to_currency item.total %> - 
+      <%= link_to "Remove", cart_item_path(item), :method => :delete, :remote => true %>
+    </li>
   <% end %>
+  <li class="total">
+    <%= number_to_currency current_cart.total %>
+  </li>
 </ul>
