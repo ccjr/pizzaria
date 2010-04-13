@@ -1,0 +1,25 @@
+<%= render 'cart' %>
+<%= form_for(current_cart, :url => process_cart_path) do |f| %>
+  <% if current_cart.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(current_cart.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <ul>
+    <% current_cart.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :delivery_method %><br />
+    <%= f.text_field :delivery_method %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
