@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
       order.save(false)
       session[:cart_id] = order.id
     end
-    Order.find(session[:cart_id])
+    cart = Order.find(session[:cart_id])    
+    cart.update_attribute(:user_id, current_user.id) if current_user
+    return cart
   end
   helper_method :current_cart
   

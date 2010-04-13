@@ -5,7 +5,7 @@ Pizzaria::Application.routes.draw do |map|
     resources :items 
   end
   
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "sessions" }
 
   root :to => "products#index"
 end
