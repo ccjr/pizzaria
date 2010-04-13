@@ -1,31 +1,6 @@
 <h1>Listing products</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Tip</th>
-    <th>Category</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td><%= product.tip %></td>
-    <td><%= product.category %></td>
-    <td><%= product.price %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<%= render @products %>
+<% if current_user and current_user.admin? %>
+  <%= link_to 'New Product', new_product_path %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Product', new_product_path %>

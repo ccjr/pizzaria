@@ -3,17 +3,17 @@ class CartsController < ApplicationController
   
   def add
     @cart.increment_product(@product)
-    render :template => "carts/update_cart.rjs"
+    render :template => "carts/update_cart.js.erb"
   end
   
   def remove
     @cart.decrement_product(@product)
-    render :template => "carts/update_cart.rjs"
+    render :template => "carts/update_cart.js.erb"
   end
   
   private
     def load_objects
       @cart = current_cart
-      @product = Product.find(params[:product_id]) if params[:product_id]
+      @product = Product.find(params[:id]) if params[:id]
     end
 end

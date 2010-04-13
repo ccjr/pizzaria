@@ -1,0 +1,13 @@
+<% div_for product do %>
+  <h3>
+    <%= link_to product.name, product %>
+    <span class='actions'>
+      <% if current_user && current_user.admin? %>
+        <%= link_to "Edit", edit_product_path(product) %>
+        <%= link_to "Delete", product, :confirm => "Are you sure?", :method => :delete %>
+      <% end %>
+      <%= link_to "Add to cart", add_to_cart_path(:id => product), :remote => true %>
+    </span>
+  </h3>
+  <%= raw simple_format(product.description) %>
+<% end %>

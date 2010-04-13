@@ -3,8 +3,10 @@ class OrderItem < ActiveRecord::Base
   
   belongs_to :order
   belongs_to :product
+
+  delegate :name, :price, :to => :product
   
-  def price
-    quantity * product.price
+  def total
+    quantity * price
   end
 end
