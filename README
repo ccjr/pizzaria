@@ -19,7 +19,7 @@
 
   - Seed file, some products and an Admin user
 
-- Assiciations
+- Associations
   - Order / Product / User / OrderItem
 
 - Adding logic methods
@@ -56,3 +56,8 @@
   - Dynamic categories (belongs_to and has_many)
   - Add extra fields to Order item - Customize size
   - Search functionality - SimpleSearch plugin
+  - Email a friend
+  - Reorder
+
+- My orders
+- Pagination for products/orders
