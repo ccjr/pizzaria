@@ -1,5 +1,6 @@
 Pizzaria::Application.routes.draw do |map|
   resources :products
+  resources :orders
   
   resource :cart do
     get :checkout

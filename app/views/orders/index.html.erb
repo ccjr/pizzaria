@@ -1,0 +1,7 @@
+<ul id="orders">
+  <% @orders.each do |order| %>
+    <li>
+      <%= number_to_currency order.total %> - 
+    </li>
+  <% end %>
+</ul>
