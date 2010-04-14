@@ -3,7 +3,7 @@ Pizzaria::Application.routes.draw do |map|
   
   resource :cart do
     get :checkout
-    post :process
+    post :confirm
     resources :items 
   end
   

@@ -1,5 +1,5 @@
 <%= render 'cart' %>
-<%= form_for(current_cart, :url => process_cart_path) do |f| %>
+<%= form_for(current_cart, :url => confirm_cart_path, :html => {:method => :post}) do |f| %>
   <% if current_cart.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(current_cart.errors.count, "error") %> prohibited this product from being saved:</h2>
