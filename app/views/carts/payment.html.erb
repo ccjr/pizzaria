@@ -1,0 +1,34 @@
+<%= render 'cart' %>
+<%= current_cart.delivery_method %>
+<%= current_cart.address %>
+
+<%= form_tag(process_payment_cart_path, :method => :post) do %>
+  <%= content_tag :p, current_cart.payment_message, :class => 'alert' if current_cart.payment_message.present? %>
+  <div class="field">
+    <%= label_tag :first_name %><br />
+    <%= text_field_tag 'credit_card[first_name]' %>
+  </div>
+  <div class="field">
+    <%= label_tag :last_name %><br />
+    <%= text_field_tag 'credit_card[last_name]' %>
+  </div>
+  <div class="field">
+    <%= label_tag :number %><br />
+    <%= number_field_tag 'credit_card[number]' %>
+  </div>
+  <div class="field">
+    <%= label_tag :expiry_month %><br />
+    <%= select_tag 'credit_card[month]', options_for_select(1..12) %>
+  </div>
+  <div class="field">
+    <%= label_tag :expiry_year %><br />
+    <%= select_tag 'credit_card[year]', options_for_select(Date.today.year..5.years.from_now.year) %>
+  </div>
+  <div class="field">
+    <%= label_tag :verification_value %><br />
+    <%= number_field_tag 'credit_card[verification_value]' %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Process Order" %>
+  </div>
+<% end %>

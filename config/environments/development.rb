@@ -17,4 +17,18 @@ Pizzaria::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
+  # BEGIN configuration
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+  end
+
+  config.to_prepare do
+    Order.gateway = ActiveMerchant::Billing::TrustCommerceGateway.new(
+                :login => 'TestMerchant',
+                :password => 'password'
+              )
+  end
+  # END configuration
 end

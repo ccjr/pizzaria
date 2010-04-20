@@ -39,4 +39,16 @@ Pizzaria::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
+  
+  # BEGIN configuration
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :production
+
+    OrderTransaction.gateway = 
+      ActiveMerchant::Billing::TrustCommerceGateway.new(
+        :login => 'LIVE_LOGIN',
+        :password => 'LIVE_PASSWORD'
+      )
+  end
+  # END configuration  
 end
