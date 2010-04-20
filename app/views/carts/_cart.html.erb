@@ -1,12 +1,14 @@
-<ul id="cart">
-  <% current_cart.items.each do |item| %>
-    <li>
-      <%= item.name %> - <%= item.quantity %> x <%= number_to_currency item.price %> = <%= number_to_currency item.total %> - 
-      <%= link_to "Remove", cart_item_path(item), :method => :delete, :remote => true %>
+<div id='cart'>
+  <h3>Cart <small><%= link_to 'view', cart_path %></small></h3>
+  <ul id="cart_items">
+    <% current_cart.items.each do |item| %>
+      <li>
+        <%= item.name %> - <%= item.quantity %> x <%= number_to_currency item.price %> = <%= number_to_currency item.total %> - 
+        <%= link_to "Remove", cart_item_path(item), :method => :delete, :remote => true %>
+      </li>
+    <% end %>
+    <li class="total">
+      <%= number_to_currency current_cart.total %>
     </li>
-  <% end %>
-  <li class="total">
-    <%= number_to_currency current_cart.total %>
-    <%= link_to 'view cart', cart_path %>
-  </li>
-</ul>
+  </ul>
+</div>

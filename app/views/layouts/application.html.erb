@@ -12,6 +12,7 @@
     <h1><%= link_to "Pizzaria", root_path %></h1>
     <div id="user_bar">
       <% if current_user %>
+        <%= link_to "My Orders", orders_path %> |
         <%= link_to "Edit Password", edit_registration_path(:user) %> |
         <%= link_to "Sign out", destroy_session_path(:user) %>
       <% else %>
