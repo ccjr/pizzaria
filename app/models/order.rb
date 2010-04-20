@@ -6,6 +6,6 @@ class Order < ActiveRecord::Base
   has_many :items, :class_name => "OrderItem"
     
   def total
-    items.collect(&:price).sum
+    items.collect(&:total).sum
   end
 end
