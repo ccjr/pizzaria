@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.paginate :page => params[:page]
   end
   
   def show

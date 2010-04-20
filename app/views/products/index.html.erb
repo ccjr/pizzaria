@@ -1,8 +1,8 @@
 <h1>Listing products</h1>
 
 <%= render @products %>
-
 <%= will_paginate @prodcuts %>
+
 <% if current_user and current_user.admin? %>
   <%= link_to 'New Product', new_product_path %>
 <% end %>
