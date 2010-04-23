@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :only_admin, :except => :index
+  before_filter :only_admin, :except => [:index, :show]
 
   # GET /products
   # GET /products.xml
