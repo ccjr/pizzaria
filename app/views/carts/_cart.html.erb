@@ -1,14 +1,29 @@
 <div id='cart'>
-  <h3>Cart <small><%= link_to 'view', cart_path %></small></h3>
+  <h3>
+    Cart
+  </h3>
   <ul id="cart_items">
     <% current_cart.items.each do |item| %>
       <li>
-        <%= item.name %> - <%= item.quantity %> x <%= number_to_currency item.price %> = <%= number_to_currency item.total %> - 
-        <%= link_to "Remove", cart_item_path(item), :method => :delete, :remote => true %>
+        <%= image_tag(item.product.image.url(:mini)) %>
+        <%= item.quantity %> 
+        <%= link_to item.name, item.product %>
+        x
+        <%= number_to_currency item.price %>
+        <%= link_to "Remove", cart_item_path(item), :method => :delete, :remote => true, :class => 'delete' %>
+        <span class="total">
+          <%= number_to_currency item.total %>
+        </span>
       </li>
     <% end %>
     <li class="total">
-      <%= number_to_currency current_cart.total %>
+      <strong>
+        Total: 
+        <span class="total">
+          <%= number_to_currency current_cart.total %>
+        </span>
+      </strong>
     </li>
   </ul>
+  <%= link_to 'Checkout', cart_path, :class => 'checkout' %>
 </div>

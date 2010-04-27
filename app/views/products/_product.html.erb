@@ -1,13 +1,16 @@
 <%= div_for product do %>
+  <div class='image'>
+    <%= link_to image_tag(product.image.url(:thumb)), product %>
+  </div>
   <h3>
     <%= link_to product.name, product %>
     <span class='actions'>
       <% if current_user && current_user.admin? %>
-        <%= link_to "Edit", edit_product_path(product) %>
-        <%= link_to "Delete", product, :confirm => "Are you sure?", :method => :delete %>
+        <%= link_to "Edit", edit_product_path(product), :class => 'edit', :title => "Edit" %>
+        <%= link_to "Delete", product, :confirm => "Are you sure?", :method => :delete, :class => 'delete', :title => "Delete" %>
       <% end %>
-      <%= link_to "Add to cart", cart_items_path(:product_id => product), :method => :post, :remote => true %>
     </span>
   </h3>
   <%= raw simple_format(product.description) %>
+  <%= link_to "Add to cart", cart_items_path(:product_id => product), :method => :post, :remote => true, :class => 'add_to_cart', :title => "Add to cart" %>
 <% end %>
